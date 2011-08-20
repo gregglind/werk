@@ -13,7 +13,7 @@ use
 ::
 
     werk start proj1
-    werk msg proj1  "researched how fabric works"  # note the unix style quoting
+    werk log proj1  "researched how fabric works"  # note the unix style quoting
     werk stop proj1
     werk status proj1 
 

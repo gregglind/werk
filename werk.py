@@ -5,6 +5,7 @@ logfile = os.environ['HOME'] + '/.werklog'
 import logging
 import json
 import pydoc
+import sys
 
 FORMAT = '%(asctime)-15s: %(message)s'
 logging.basicConfig(filemode='a',format=FORMAT, filename=logfile)
@@ -44,11 +45,14 @@ def h(cmd=None):
 
 def run(*args):
     if not args:
-        args = ['h']
+        args = sys.argv[1:]
+        if not args:
+            args = ['h']
     
     f = eval(args[0])
     f(*args[1:])
     
 if __name__ == '__main__':
     import sys
+    print sys.argv
     run(*sys.argv[1:])
